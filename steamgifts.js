@@ -10,15 +10,14 @@
 (function(){
   // hide red level gifts
   [].forEach.call(document.querySelectorAll('.giveaway__column--contributor-level--negative'), function(elem){
-    elem.parentNode.parentNode.parentNode.parentNode.style.display = 'none';
+    elem.closest('.giveaway__row-outer-wrap').remove();
   });
+
   // hide ads and images
-  ['adsbygoogle', 'featured__container', 'global__image-outer-wrap--avatar-small'].forEach(function(classname) {
-    var elems = document.getElementsByClassName(classname);
-    [].forEach.call(elems, function(elem){
-      elem.style.display = 'none';
-    });
+  [].forEach.call(document.querySelectorAll('.adsbygoogle, .featured__container, .global__image-outer-wrap--avatar-small'), function(elem){
+    elem.remove();
   });
+
   // change header colors
   [].forEach.call(document.querySelectorAll('header, .nav__button-container'), function(elem){
     elem.style.background = '#F0F2F5';

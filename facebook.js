@@ -8,34 +8,31 @@
 // ==/UserScript==
 
 (function(){
-  var m4tini_hidden = 0;
-  var display = document.createElement('div');
-  var message = document.createElement('span');
-  var counter = document.createElement('span');
-  var attached = false;
+  var removed = 0,
+      display = document.createElement('div'),
+      message = document.createElement('span'),
+      counter = document.createElement('span'),
+      attached = false;
   display.appendChild(message);
   display.appendChild(counter);
   message.innerHTML = 'Cleaned up: ';
-  counter.innerHTML = m4tini_hidden;
+  counter.innerHTML = removed;
 
   // hide sponsored posts
   setInterval(function(){
-    var unwanted = document.querySelectorAll('.uiStreamAdditionalLogging, a[href^="https://www.facebook.com/friends/requests/"]');
-    for (var i = 0, j = unwanted.length; i < j; i++) {
-      var wrapper = unwanted[i].closest('.userContentWrapper');
-      wrapper.parentNode.parentNode.style.border = '5px solid #f90';
+    [].forEach.call(document.querySelectorAll('.uiStreamAdditionalLogging, a[href^="https://www.facebook.com/friends/requests/"]'), function(elem){
+      var wrapper = elem.closest('.userContentWrapper');
       // support wrapped wrappers
       if (wrapper.parentNode.closest('.userContentWrapper')) {
         wrapper = wrapper.parentNode.closest('.userContentWrapper');
       }
-      var post = wrapper.parentNode.parentNode;
-      post.remove();
-      counter.innerHTML = ++m4tini_hidden;
-    }
-    
+      wrapper.parentNode.parentNode.remove();
+      counter.innerHTML = ++removed;
+    });
+    // monitor when ajax stuff is loaded
     if (!attached) {
-      if (document.querySelector('#pagelet_rhc_footer span:last-child')) {
-        document.querySelector('#pagelet_rhc_footer span:last-child').parentNode.parentNode.appendChild(display);
+      if (footer = document.querySelector('#pagelet_rhc_footer span:last-child')) {
+        footer.parentNode.parentNode.appendChild(display);
         document.getElementById('q').setAttribute('placeholder', '');
         attached = true;
       }

@@ -10,9 +10,9 @@
 (function(){
   // highlight code tags
   var css = document.createElement('style');
-  css.innerHTML = '.markdown-body code { display: inline-block; vertical-align: middle; padding: 0; background: #666; color: #fff; font-size: 13px; }'
-                + '.markdown-body pre code { color: #333; }'
-                + '.markdown-body blockquote { border-color: #f90; }'
+  css.innerHTML = '.markdown-body code { background: #eee; color: #000; }'
+                + '.markdown-body pre, .markdown-body .highlight pre { background: #eee; color: #000 }'
+                + '.markdown-body blockquote, .markdown-body blockquote code { color: #999; border-color: #f90; }'
                 ;
   document.body.appendChild(css);
 })();

@@ -11,6 +11,8 @@
   // highlight code tags
   var css = document.createElement('style');
   css.innerHTML = '.markdown-body code { display: inline-block; vertical-align: middle; padding: 0; background: #666; color: #fff; font-size: 13px; }'
+                + '.markdown-body pre code { color: #333; }'
+                + '.markdown-body blockquote { border-color: #f90; }'
                 ;
   document.body.appendChild(css);
 })();

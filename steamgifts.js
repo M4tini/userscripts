@@ -14,12 +14,11 @@
   });
 
   // hide ads and images
-  [].forEach.call(document.querySelectorAll('.adsbygoogle, .featured__container, .global__image-outer-wrap--avatar-small'), function(elem){
+  [].forEach.call(document.querySelectorAll('.adsbygoogle, .global__image-outer-wrap--avatar-small'), function(elem){
     elem.remove();
   });
 
-  // change header colors
-  [].forEach.call(document.querySelectorAll('header, .nav__button-container'), function(elem){
-    elem.style.background = '#F0F2F5';
-  });
+  // smaller header
+  document.querySelector('.global__image-outer-wrap').style.padding = '0';
+  document.querySelector('.global__image-outer-wrap img').style.height = '70px';
 })();

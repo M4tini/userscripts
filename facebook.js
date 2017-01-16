@@ -18,16 +18,29 @@
   message.innerHTML = 'Cleaned up: ';
   counter.innerHTML = removed;
 
+  function removeWrapper(elem) {
+    var wrapper = elem.closest('.userContentWrapper');
+    // support wrapped wrappers
+    if (wrapper.parentNode.closest('.userContentWrapper')) {
+      wrapper = wrapper.parentNode.closest('.userContentWrapper');
+    }
+    //wrapper.parentNode.parentNode.remove();
+    wrapper.parentNode.parentNode.style.opacity = '.2';
+    counter.innerHTML = ++removed;
+  }
+
   // hide sponsored posts
   setInterval(function(){
-    [].forEach.call(document.querySelectorAll('.uiStreamAdditionalLogging, a[href^="https://www.facebook.com/friends/requests/"]'), function(elem){
-      var wrapper = elem.closest('.userContentWrapper');
-      // support wrapped wrappers
-      if (wrapper.parentNode.closest('.userContentWrapper')) {
-        wrapper = wrapper.parentNode.closest('.userContentWrapper');
+    [].forEach.call(document.querySelectorAll('a[href*="/friends/requests/"]:not(.tini_checked)'), function(elem){
+      elem.classList.add('tini_checked');
+      removeWrapper(elem);
+    });
+    //
+    [].forEach.call(document.querySelectorAll('a[href^="https://l.facebook.com/l.php"]:not(.tini_checked)'), function(elem){
+      elem.classList.add('tini_checked');
+      if ('Gesponsord' == elem.innerHTML) {
+        removeWrapper(elem);
       }
-      wrapper.parentNode.parentNode.remove();
-      counter.innerHTML = ++removed;
     });
     // monitor when ajax stuff is loaded
     if (!attached) {

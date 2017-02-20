@@ -24,8 +24,7 @@
     if (wrapper.parentNode.closest('.userContentWrapper')) {
       wrapper = wrapper.parentNode.closest('.userContentWrapper');
     }
-    //wrapper.parentNode.parentNode.remove();
-    wrapper.parentNode.parentNode.style.opacity = '.2';
+    wrapper.parentNode.parentNode.remove();
     counter.innerHTML = ++removed;
   }
 

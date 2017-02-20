@@ -1,16 +1,17 @@
 // ==UserScript==
 // @name        LinkedIn
 // @namespace   m4tini
-// @description Fix image dimensions
-// @include     https://www.linkedin.com/in/*
+// @description Hide ads + fix image dimensions
+// @include     https://www.linkedin.com/*
 // @version     1
 // @grant       none
 // ==/UserScript==
 
 (function(){
-  // fix logo height
+  // hide ads + fix logo height
   var css = document.createElement('style');
-  css.innerHTML = '.pv-entity__logo-img { height: 56px; }'
-  ;
+  css.innerHTML = '.ad-banner-container { display: none; }'
+                + '.pv-entity__logo-img { height: 56px; }'
+                ;
   document.body.appendChild(css);
 })();

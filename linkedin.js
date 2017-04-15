@@ -8,10 +8,9 @@
 // ==/UserScript==
 
 (function(){
-  // hide ads + fix logo height
+  // hide ads
   var css = document.createElement('style');
   css.innerHTML = '.ad-banner-container { display: none; }'
-                + '.pv-entity__logo-img { height: 56px; }'
                 ;
   document.body.appendChild(css);
 })();

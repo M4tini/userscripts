@@ -15,7 +15,7 @@
 
   // hide ads and images + smaller header
   var css = document.createElement('style');
-  css.innerHTML = '.adsbygoogle, .global__image-outer-wrap--avatar-small { display: none !important; }'
+  css.innerHTML = '.sidebar__mpu, .global__image-outer-wrap--avatar-small { display: none !important; }'
                 + '.global__image-outer-wrap { padding: 0; }'
                 + '.global__image-outer-wrap img { height: 70px; }'
                 ;

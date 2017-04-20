@@ -8,7 +8,7 @@
 // ==/UserScript==
 
 (function(){
-  user = {};
+  let user = {};
 
   // monitor ajax loading
   setInterval(function() {
@@ -40,23 +40,27 @@
   }, 1337);
 
   // show card numbers + enhance interface
-  var css = document.createElement('style');
-  css.innerHTML = '#board { overflow: visible; margin-bottom: 0; }'
-                + '#content { overflow: visible; }'
-                + 'body, button, html, input, select, textarea, .icon-lg, .icon-sm, .open-card-composer { color: #333; }'
-                + '.button.primary, button.primary, input.primary[type="button"], input.primary[type="submit"] { background: #ffe128 !important; color: #333; box-shadow: none; }'
-                + '.board-header-btn, .board-header-btn-icon, .list-name-input { color: #fff; }'
-                + '.board-wrapper { z-index: 13; }'
-                + '.body-board-view #header { background: #333; }'
-                + '.card-short-id { display: block; float: left; font-weight: 700; margin-right: 8px; }'
-                + '.list { min-height: 100%; background: rgba(255, 255, 255, .3); border-radius: 0; }'
-                + '.list-card { background: rgba(255, 255, 255, .7); border-bottom-color: #ddd; border-radius: 8px; }'
-                + '.list-card.mp-user { background: #fff; }'
-                + '.list-wrapper.js-add-list { position: absolute; top: -81px; right: 245px; width: auto; min-height: auto; padding: 0; background: rgba(255, 255, 255, .3) !important; }'
-                + '.is-show-menu .list-wrapper.js-add-list { right: -94px; }'
-                + '.list-wrapper.mod-add .placeholder { padding: 6px; }'
-                + '.open-card-composer:hover { background: rgba(255, 255, 255, .3); }'
-                + '.list-total .cpoints { margin-right: auto !important; }'
-                ;
+  let css = document.createElement('style');
+  css.innerHTML = `
+    #board { overflow: visible; margin-bottom: 0; }
+    #content { overflow: visible; }
+    body, button, html, input, select, textarea, .dark-hover span, .open-card-composer { color: #333; }
+    .button.primary, button.primary, input.primary[type="button"], input.primary[type="submit"] { background: #ffe128 !important; color: #333; box-shadow: none; }
+    .board-wrapper { z-index: 10; }
+    .body-board-view #header { background: #333; }
+    .card-short-id { display: block; float: left; font-weight: 700; margin-right: 8px; }
+    .list { min-height: 100%; background: rgba(255, 255, 255, .3); border-radius: 0; }
+    .list-card { background: rgba(255, 255, 255, .7); border-bottom-color: #ddd; border-radius: 8px; }
+    .list-card.mp-user { background: #fff; }
+    .list-name-input { color: #fff; }
+    .list-total .cpoints { margin-right: auto !important; }
+    .list-wrapper.js-add-list { position: absolute; top: -81px; right: 245px; width: auto; min-height: auto; padding: 0; background: rgba(255, 255, 255, .3) !important; }
+    .list-wrapper.js-add-list .list-name-input { padding: 6px; background: #fff; color: #333; border: 0; }
+    .list-wrapper.mod-add .placeholder { min-height: auto; padding: 6px; }
+    .is-show-menu .list-wrapper.js-add-list { right: -94px; }
+    .member { border-radius: 50%; }
+    .member-type { right: 0; left: 0; margin: 0 auto; }
+    .open-card-composer:hover { background: rgba(255, 255, 255, .3); }
+  `;
   document.body.appendChild(css);
 })();

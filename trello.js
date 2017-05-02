@@ -42,21 +42,21 @@
   // show card numbers + enhance interface
   let css = document.createElement('style');
   css.innerHTML = `
-    #board { overflow: visible; margin-bottom: 0; }
-    #content { overflow: visible; }
-    body, button, html, input, select, textarea, .dark-hover span, .open-card-composer { color: #333; }
+    #board { margin-bottom: 0; }
+    body, button, html, input, select, textarea, .dark-hover, .dark-hover span, .open-card-composer { color: #333; }
     .button.primary, button.primary, input.primary[type="button"], input.primary[type="submit"] { background: #ffe128 !important; color: #333; box-shadow: none; }
     .board-wrapper { z-index: 10; }
     .body-board-view #header { background: #333; }
     .card-short-id { display: block; float: left; font-weight: 700; margin-right: 8px; }
     .list { min-height: 100%; background: rgba(255, 255, 255, .3); border-radius: 0; }
-    .list-card { background: rgba(255, 255, 255, .7); border-bottom-color: #ddd; border-radius: 8px; }
+    .list-card { max-width: 100%; background: rgba(255, 255, 255, .7); border-bottom-color: #ddd; border-radius: 8px; }
     .list-card.mp-user { background: #fff; }
     .list-name-input { color: #fff; }
     .list-total .cpoints { margin-right: auto !important; }
-    .list-wrapper.js-add-list { position: absolute; top: -81px; right: 245px; width: auto; min-height: auto; padding: 0; background: rgba(255, 255, 255, .3) !important; }
+    .list-wrapper { width: calc(20% - 16px); margin: auto 8px !important; }
+    .list-wrapper.js-add-list { width: auto; min-height: auto; padding: 0; background: rgba(255, 255, 255, .3) !important; }
     .list-wrapper.js-add-list .list-name-input { padding: 6px; background: #fff; color: #333; border: 0; }
-    .list-wrapper.mod-add .placeholder { min-height: auto; padding: 6px; }
+    .list-wrapper.mod-add .placeholder { min-height: auto; padding: 6px; color: #333; }
     .is-show-menu .list-wrapper.js-add-list { right: -94px; }
     .member { border-radius: 50%; }
     .member-type { right: 0; left: 0; margin: 0 auto; }
